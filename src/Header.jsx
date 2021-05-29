@@ -30,7 +30,7 @@ function Header() {
       <HeaderOption Icon={WorkIcon} title="Job" />
       <HeaderOption Icon={MessageIcon} title="Messaging" />
       <HeaderOption Icon={NotificationsIcon} title="Notification" />
-      <HeaderOption avatar="https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hytitle=v7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw" title="Me" />
+      <HeaderOption avatar="https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hyv7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw" title="Me" />
     </div>
   );
 }

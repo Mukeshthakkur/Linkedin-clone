@@ -8,7 +8,7 @@
     padding-top: 10px;
     padding-bottom: 10px; 
     width: 100%;
-    z-index: 999;
+    z-index: 999; 
 }
 
 .header__left{
@@ -18,20 +18,23 @@
 .header__left > img {
      object-fit: content; 
      height: 40px;
+     margin-right: 10px;
 }
 
 
 
 .header__search{ 
-     padding: 10px;
-     display: flex; 
+    padding: 10px;
+    display: flex; 
     align-items: center;
     border-radius: 5px;
     height: 22px; 
-    color: grey; 
+    background-color: #eef3f9;
+    color: rgb(100, 100, 100); 
 }
 
 .header__search > input{
+    color: rgb(56, 56, 56); 
      outline: none;
      border: none; 
      background: none;
