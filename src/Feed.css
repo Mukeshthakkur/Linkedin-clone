@@ -1,41 +1,45 @@
-.feed{
-    flex: 0.6; 
-    margin: 0 20px
+.feed {
+  flex: 0.6;
+  margin-top: 10px;
 }
 
-.feed__inputContainer{ 
-    border: 1px solid lightgrey ;
-    background-color: #fff;
-    padding: 10px; 
-    border-radius: 10px;
-    margin-bottom: 20px;
+.feed__inputContainer {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.feed__input{
-    color: grey; 
-    padding-left: 15px;  
+.feed__input {
+  color: grey;
+  /* padding-left: 15px;   */
 }
 
-.feed__input> form { 
-    display: flex;
+.feed__input > form {
+  display: flex;
 }
 
-.feed__input > form > input{ 
-    padding: 10px; 
-    border-radius: 20px;
-    border: 1px solid lightgray;
-    width: 250px;
-}  
-
-.feed__input > form > input:focus{
-    outline: none;
+.feed__input > form > input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  width: 300px;
+  margin-left: 20px;
 }
 
-.inputOptions{
-    display: flex;
-    justify-content: space-evenly;
+.feed__input > form > input:focus {
+  outline: none;
 }
 
-.inputOptions:hover{
-    background-color: lightgrey;
+.feed__options {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+
+
+.inputOption:hover{
+  background-color: rgb(233, 231, 231);
+  border-radius: 2px;
 }

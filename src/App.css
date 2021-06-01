@@ -1,9 +1,11 @@
-.App {
-  background-color: #cacac5; 
+.app {
+  background-color: #eeeeee; 
   align-items: center; 
+  margin: 0;
 }
 
 
 .app__body{
   display: flex;
 } 
+

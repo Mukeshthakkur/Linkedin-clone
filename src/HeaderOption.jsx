@@ -2,7 +2,7 @@ import React from 'react';
 import "./HeaderOption.css";
 import { Avatar } from "@material-ui/core"
 
-function HreaderOption({ avatar, Icon, title}) {
+function HeaderOption({ avatar, Icon, title}) {
     return (
         <div className="headerOption">
             {Icon && <Icon className="headerOption__icon"/>}
@@ -14,4 +14,4 @@ function HreaderOption({ avatar, Icon, title}) {
     )
 }
 
-export default HreaderOption
+export default HeaderOption

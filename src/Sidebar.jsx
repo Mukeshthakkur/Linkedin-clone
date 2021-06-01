@@ -19,7 +19,7 @@ function Sidebar() {
 
       <div className="sidebar__top">
         <img src="https://media-exp1.licdn.com/dms/image/C4D16AQEo6zDIaMhcbw/profile-displaybackgroundimage-shrink_200_800/0/1622288949710?e=1627516800&v=beta&t=s0K88B0hUaMH9e5-qiE1lkuIXMUGNJH2xlnHfLKx2OU" alt="" />
-        <Avatar className="sidebar__avatar" />
+        <Avatar src="https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hyv7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw" className="sidebar__avatar" />
         <h2>Mukesh Thakkur</h2>
         <h4>mukeshthakkur.mt@gmail.com</h4>
       </div>

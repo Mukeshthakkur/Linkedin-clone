@@ -23,7 +23,6 @@
 }
 
 
-
 .header__search{ 
     padding: 10px;
     display: flex; 
@@ -40,3 +39,7 @@
      border: none; 
      background: none;
 } 
+
+h3{
+    margin: 0;
+}
