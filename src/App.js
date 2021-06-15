@@ -3,16 +3,14 @@ import Header from "./Header";
 import SideBar from "./Sidebar";
 import "./App.css"
 import Feed from "./Feed";
+import Login from "./Login";
 
 function App() {
   return (
     <div class="app">
       <Header />
-
-
       <div className="app__body">
-        <SideBar />
-        <Feed /> 
+        <Login /> 
       </div>
       
     </div>

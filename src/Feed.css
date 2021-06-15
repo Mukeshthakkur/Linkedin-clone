@@ -31,6 +31,10 @@
   outline: none;
 }
 
+.feed__input > form > button{
+  display: none;
+}
+
 .feed__options {
   display: flex;
   justify-content: space-between;
