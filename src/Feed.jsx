@@ -7,22 +7,20 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import Post from "./post";
-// import { db } from "./firebase";
-// import firebase from "firebase";
 import {db } from './firebase';
 import firebase from 'firebase';
 
 
 function Feed() {
   const [input, setInput] = useState("");
-  const [post, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
 
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setPost(  
-        snapshot.docs.map( (doc) => ({
+    db.collection("posts").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+      setPosts(  
+        snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data()
         }))
@@ -30,11 +28,11 @@ function Feed() {
     })
   },[])
 
+  const sendPost = event => {
+    
+    event.preventDefault();
 
-  const sendPost = (e) => {
-    e.preventDefault();
-
-    db.collection("post").add({
+    db.collection("posts").add({
       name: "Mukesh Thakkur",
       description: "this is a test",
       message: input,
@@ -42,19 +40,25 @@ function Feed() {
         "https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hyv7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw",
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
+
+    setInput("")
   };
 
   return (
     <div className="feed">
       <div className="feed__inputContainer">
         <div className="feed__input">
-          <form onSubmit={sendPost}>
+
+
+          <form >
             <Avatar src="https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hyv7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw" />
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Start a post"
-            />
+            />  
+
+            <button onClick={sendPost} type="submit" className="btn btn-primary">send</button>
           </form>
 
           <div className="feed__options">
@@ -86,7 +90,7 @@ function Feed() {
         </div>
       </div>
 
-      {post.map(
+      {posts.map(
         ({ id, data: { name, description, message, photoUrl, timestamp } }) => (
           <Post
             key={id}
