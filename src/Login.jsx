@@ -1,24 +1,45 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
+import { auth } from "./firebase";
 import "./login.css";
 
 function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Submit", { "name": name, "password": password, "email": email });
+    console.log("Submit", { name: name, password: password, email: email });
   };
 
   const Register = () => {
-      if (!name){
-          return alert("Please Enter your Fullname")
-      }
-      else{
-          
-      }
-  }
+    if (!name) {
+      return alert("Please Enter your Fullname");
+    }
+
+    auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
+      userAuth.user
+        .updateProfile({
+          displayName: name,
+          photoURL: profilePic,
+        })
+        .then(() => {
+          dispatch(
+            login({
+              email: userAuth.user.email,
+              uid: userAuth.user.uid,
+              displayName: name,
+              photoURL: profilePic,
+            })
+          );
+        })
+        .catch((error) => alert(error));
+    });
+  };
 
   return (
     <div className="login">
@@ -37,7 +58,13 @@ function Login() {
           onChange={(e) => setName(e.target.value)}
           placeholder="Full name (require if registration"
         />
-        <input type="text" placeholder="Profile Pic Url(Optional)" />
+        <input
+          type="text"
+          placeholder="Profile Pic Url(Optional)"
+          value={profilePic}
+          onChange={(e) => setProfilePic(e.target.value)}
+        />
+
         <input
           type="text"
           value={email}
@@ -51,7 +78,7 @@ function Login() {
           placeholder="Enter your Password"
         />
 
-        <button onClick={handleSubmit} className="btn btn-primary">
+        <button onClick={handleLogin} className="btn btn-primary">
           Submit
         </button>
       </form>
