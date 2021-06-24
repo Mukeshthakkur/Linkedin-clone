@@ -13,7 +13,20 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Submit", { name: name, password: password, email: email });
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            ProfileUrl: userAuth.user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   const Register = () => {
@@ -33,7 +46,7 @@ function Login() {
               email: userAuth.user.email,
               uid: userAuth.user.uid,
               displayName: name,
-              photoURL: profilePic,
+              photoUrl: profilePic,
             })
           );
         })

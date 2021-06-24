@@ -1,27 +1,36 @@
 import { Avatar } from "@material-ui/core";
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 import "./Sidebar.css";
 
 function Sidebar() {
-
-  const recentItem =(topic) =>(
-
-    <div className="sidebar__recentItem">
+  const user = useSelector(selectUser);
+  const recentItem = (topic) => (
+    <div
+      className="sidebar__
+    recentItem"
+    >
       <p>
-      <span className="sidebar__hash">#</span>
-        {topic}</p>
+        <span className="sidebar__hash">#</span>
+        {topic}
+      </p>
     </div>
-  )
+  );
 
   return (
     <div className="sidebar">
-
-
       <div className="sidebar__top">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D16AQEo6zDIaMhcbw/profile-displaybackgroundimage-shrink_200_800/0/1622288949710?e=1627516800&v=beta&t=s0K88B0hUaMH9e5-qiE1lkuIXMUGNJH2xlnHfLKx2OU" alt="" />
-        <Avatar src="https://media-exp1.licdn.com/dms/image/C4D35AQHjrThg9sn7zA/profile-framedphoto-shrink_200_200/0/1620458936692?e=1622372400&v=beta&t=UrHTm_Hyv7YfvQhOUDGHm4goYY8Zn5yko9wJol-gtkw" className="sidebar__avatar" />
-        <h2>Mukesh Thakkur</h2>
-        <h4>mukeshthakkur.mt@gmail.com</h4>
+        <img
+          src="https://media-exp1.licdn.com/dms/image/C4D16AQEo6zDIaMhcbw/profile-displaybackgroundimage-shrink_200_800/0/1622288949710?e=1627516800&v=beta&t=s0K88B0hUaMH9e5-qiE1lkuIXMUGNJH2xlnHfLKx2OU"
+          alt=""
+        />
+
+        <Avatar src={user.photoUrl} className="sidebar__avatar">
+          {user.displayName[0]}
+        </Avatar>
+        <h2>{user.displayName}</h2>
+        <h4>{user.email}</h4>
       </div>
 
       <div className="sidebar__stats">
@@ -30,20 +39,18 @@ function Sidebar() {
           <p className="sidebar__statNumber">30</p>
         </div>
         <div className="sidebar__stat">
-        <p>who viewed you</p>
-        <p className="sidebar__statNumber">03</p>
+          <p>who viewed you</p>
+          <p className="sidebar__statNumber">03</p>
+        </div>
       </div>
-      </div>
-
 
       <div className="sidebar__bottom">
-          <p>Recent</p>
+        <p>Recent</p>
 
-          {recentItem("reactjs")}
-          {recentItem("redux")}
-          {recentItem("programming")}
+        {recentItem("reactjs")}
+        {recentItem("redux")}
+        {recentItem("programming")}
       </div>
-
     </div>
   );
 }
