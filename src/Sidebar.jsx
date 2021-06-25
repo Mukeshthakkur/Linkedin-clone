@@ -21,7 +21,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <img
+        <img className="cover__img"
           src="https://media-exp1.licdn.com/dms/image/C4D16AQEo6zDIaMhcbw/profile-displaybackgroundimage-shrink_200_800/0/1622288949710?e=1627516800&v=beta&t=s0K88B0hUaMH9e5-qiE1lkuIXMUGNJH2xlnHfLKx2OU"
           alt=""
         />
